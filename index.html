@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Hórus - Secretaria Municipal de Saúde de Oeiras</title>
+    <meta name="description"
+        content="Formulário de cadastro e atualização de perfil no sistema Hórus - SCAWEB para profissionais de saúde de Oeiras-PI">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated background particles -->
+    <div class="bg-particles" id="particles"></div>
+
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-area">
+                    <div class="logo-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <rect width="40" height="40" rx="12" fill="white" fill-opacity="0.15" />
+                            <path d="M20 8L12 14V26L20 32L28 26V14L20 8Z" stroke="white" stroke-width="2" fill="none" />
+                            <circle cx="20" cy="20" r="4" fill="white" />
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Sistema Hórus</h1>
+                        <p>Secretaria Municipal de Saúde • Oeiras-PI</p>
+                    </div>
+                </div>
+                <div class="header-badge">
+                    <span class="badge-dot"></span>
+                    Formulário Online
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Form -->
+        <main class="main-content">
+            <div class="form-card">
+                <!-- Form Header -->
+                <div class="form-header">
+                    <h2>Cadastro de Profissional</h2>
+                    <p>Preencha os dados abaixo para solicitar seu cadastro ou atualização no sistema Hórus (SCAWEB)</p>
+                </div>
+
+                <!-- Progress Steps -->
+                <div class="progress-bar">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <span>Dados Pessoais</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <span>Profissional</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <span>Confirmação</span>
+                    </div>
+                </div>
+
+                <form id="formCadastro" novalidate>
+                    <!-- Step 1: Dados Pessoais -->
+                    <div class="form-step active" id="step1">
+                        <div class="step-title">
+                            <div class="step-icon">👤</div>
+                            <h3>Dados Pessoais</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tipo de Solicitação</label>
+                            <div class="radio-cards">
+                                <label class="radio-card">
+                                    <input type="radio" name="tipo_acao" value="CADASTRO" required>
+                                    <div class="card-content">
+                                        <span class="card-icon">🆕</span>
+                                        <span class="card-title">Novo Cadastro</span>
+                                        <span class="card-desc">Para quem nunca usou o Hórus antes</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="tipo_acao" value="ATUALIZAR_PERFIL">
+                                    <div class="card-content">
+                                        <span class="card-icon">🔄</span>
+                                        <span class="card-title">Atualizar Perfil / Trocar UBS</span>
+                                        <span class="card-desc">Para quem já tem acesso e mudou de local</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <span class="field-error" id="erro_tipo"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nome_completo">Nome Completo</label>
+                            <input type="text" id="nome_completo" name="nome_completo"
+                                placeholder="Ex: MARIA SILVA DE SOUSA" required autocomplete="name">
+                            <span class="field-error" id="erro_nome"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="Ex: maria.silva@gmail.com" required
+                                autocomplete="email">
+                            <span class="field-error" id="erro_email"></span>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cpf">CPF</label>
+                                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14"
+                                    required>
+                                <span class="field-error" id="erro_cpf"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="ddd">DDD</label>
+                                <input type="text" id="ddd" name="ddd" placeholder="89" maxlength="2" required>
+                            </div>
+                            <div class="form-group flex-2">
+                                <label for="telefone">Telefone</label>
+                                <input type="text" id="telefone" name="telefone" placeholder="999887766" maxlength="9"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <div></div>
+                            <button type="button" class="btn btn-primary" onclick="nextStep(2)">
+                                Próximo
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Dados Profissionais -->
+                    <div class="form-step" id="step2">
+                        <div class="step-title">
+                            <div class="step-icon">🏥</div>
+                            <h3>Dados Profissionais</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cargo_funcao">Cargo / Função</label>
+                            <div class="select-wrapper">
+                                <select id="cargo_funcao" name="cargo_funcao" required>
+                                    <option value="">Selecione seu cargo...</option>
+                                    <option value="ENFERMEIRO(A)">Enfermeiro(a)</option>
+                                    <option value="TÉCNICO(A) DE ENFERMAGEM">Técnico(a) de Enfermagem</option>
+                                    <option value="MÉDICO(A)">Médico(a)</option>
+                                    <option value="FARMACÊUTICO(A)">Farmacêutico(a)</option>
+                                    <option value="DENTISTA">Dentista</option>
+                                    <option value="AGENTE COMUNITÁRIO DE SAÚDE">Agente Comunitário de Saúde</option>
+                                    <option value="RECEPCIONISTA">Recepcionista</option>
+                                    <option value="COORDENADOR(A)">Coordenador(a)</option>
+                                    <option value="DIGITADOR(A)">Digitador(a)</option>
+                                    <option value="OUTRO">Outro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="cargo_outro_group" style="display:none;">
+                            <label for="cargo_outro">Especifique o cargo</label>
+                            <input type="text" id="cargo_outro" name="cargo_outro" placeholder="Digite seu cargo">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Zona da Unidade</label>
+                            <div class="radio-cards">
+                                <label class="radio-card">
+                                    <input type="radio" name="zona_unidade" value="URBANA">
+                                    <div class="card-content" style="padding: 16px 12px;">
+                                        <span class="card-icon" style="font-size: 2rem;">🏙️</span>
+                                        <span class="card-title" style="font-size: 1.05rem;">Zona Urbana</span>
+                                        <span class="card-desc" style="font-size: 0.8rem;">Na cidade</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="zona_unidade" value="RURAL">
+                                    <div class="card-content" style="padding: 16px 12px;">
+                                        <span class="card-icon" style="font-size: 2rem;">🌳</span>
+                                        <span class="card-title" style="font-size: 1.05rem;">Zona Rural</span>
+                                        <span class="card-desc" style="font-size: 0.8rem;">No interior</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <span class="field-error" id="erro_zona"></span>
+                        </div>
+
+                        <div class="form-group" id="group_unidade_urbana" style="display: none;">
+                            <label for="unidade_urbana">Selecione a Unidade (Cidade)</label>
+                            <div class="select-wrapper">
+                                <select id="unidade_urbana" name="unidade_urbana">
+                                    <option value="">Selecione a UBS...</option>
+                                    <option value="CAPS AD - OEIRAS-PI">CAPS AD - OEIRAS-PI</option>
+                                    <option value="CAPS I - OEIRAS-PI">CAPS I - OEIRAS-PI</option>
+                                    <option value="CENTRO DE CONTROLE DE VETORES E ZOONOSES DE OEIRAS - OEIRAS-PI">
+                                        CENTRO DE CONTROLE DE VETORES E ZOONOSES</option>
+                                    <option value="CENTRO DE ESPECIALIDADES ODONTOLOGICAS CEO DE OEIRAS - OEIRAS-PI">CEO
+                                        DE OEIRAS</option>
+                                    <option value="CS DR PAULO DE TARSO - OEIRAS-PI">CS DR PAULO DE TARSO - OEIRAS-PI
+                                    </option>
+                                    <option value="SAMU 192 OEIRAS USB 01 - OEIRAS-PI">SAMU 192 OEIRAS USB 01</option>
+                                    <option value="SAMU 192 OEIRAS USB 02 - OEIRAS-PI">SAMU 192 OEIRAS USB 02</option>
+                                    <option value="SAMU 192 OEIRAS USB 03 - OEIRAS-PI">SAMU 192 OEIRAS USB 03</option>
+                                    <option value="SAMU 192 SUPORTE AVANCADO USA 01 - OEIRAS-PI">SAMU 192 SUPORTE
+                                        AVANÇADO USA 01</option>
+                                    <option value="SESAM ALMOXARIFADO - OEIRAS-PI">SESAM ALMOXARIFADO - OEIRAS-PI
+                                    </option>
+                                    <option value="SESAM FARMÁCIA - OEIRAS-PI">SESAM FARMÁCIA - OEIRAS-PI</option>
+                                    <option value="UBS JURANI - OEIRAS-PI">UBS JURANI - OEIRAS-PI</option>
+                                    <option value="USF CANELA DE OEIRAS - OEIRAS-PI">USF CANELA DE OEIRAS - OEIRAS-PI
+                                    </option>
+                                    <option value="USF DE OEIRAS NOVA - OEIRAS-PI">USF DE OEIRAS NOVA - OEIRAS-PI
+                                    </option>
+                                    <option value="USF DR HAILTON ALVES - OEIRAS-PI">USF DR HAILTON ALVES - OEIRAS-PI
+                                    </option>
+                                    <option value="USF DR PEDRO BARBOSA - OEIRAS-PI">USF DR PEDRO BARBOSA - OEIRAS-PI
+                                    </option>
+                                    <option value="USF JUREMINHA - OEIRAS-PI">USF JUREMINHA - OEIRAS-PI</option>
+                                    <option value="USF RODAGEM DE PICOS - OEIRAS-PI">USF RODAGEM DE PICOS - OEIRAS-PI
+                                    </option>
+                                    <option value="USF VARZEA - OEIRAS-PI">USF VARZEA - OEIRAS-PI</option>
+                                    <option value="OUTRO">Outra unidade...</option>
+                                </select>
+                            </div>
+                            <span class="field-error" id="erro_unidade_urbana"></span>
+                        </div>
+
+                        <div class="form-group" id="group_unidade_rural" style="display: none;">
+                            <label for="unidade_rural">Selecione a Unidade (Interior)</label>
+                            <div class="select-wrapper">
+                                <select id="unidade_rural" name="unidade_rural">
+                                    <option value="">Selecione a 1ª UBS do Interior...</option>
+                                    <option value="UBS ALTO SERENO - OEIRAS-PI">UBS ALTO SERENO - OEIRAS-PI</option>
+                                    <option value="UBS BELO MONTE - OEIRAS-PI">UBS BELO MONTE - OEIRAS-PI</option>
+                                    <option value="UBS BOA VISTA - OEIRAS-PI">UBS BOA VISTA - OEIRAS-PI</option>
+                                    <option value="UBS BURITI DO CANTO - OEIRAS-PI">UBS BURITI DO CANTO - OEIRAS-PI
+                                    </option>
+                                    <option value="UBS CANTO FAZENDA FRADE - OEIRAS-PI">UBS CANTO FAZENDA FRADE -
+                                        OEIRAS-PI</option>
+                                    <option value="US CARAIBAS - OEIRAS-PI">US CARAIBAS - OEIRAS-PI</option>
+                                    <option value="US CURRAL VELHO - OEIRAS-PI">US CURRAL VELHO - OEIRAS-PI</option>
+                                    <option value="US EXU - OEIRAS-PI">US EXU - OEIRAS-PI</option>
+                                    <option value="US MALHADA GRANDE - OEIRAS-PI">US MALHADA GRANDE - OEIRAS-PI</option>
+                                    <option value="US MALHADA REAL - OEIRAS-PI">US MALHADA REAL - OEIRAS-PI</option>
+                                    <option value="US MELANCIAS - OEIRAS-PI">US MELANCIAS - OEIRAS-PI</option>
+                                    <option value="US TAMBORIL SALINAS - OEIRAS-PI">US TAMBORIL SALINAS - OEIRAS-PI
+                                    </option>
+                                    <option value="USF ALAGOINHA- OEIRAS-PI">USF ALAGOINHA - OEIRAS-PI</option>
+                                    <option value="USF BOA NOVA - OEIRAS-PI">USF BOA NOVA - OEIRAS-PI</option>
+                                    <option value="USF BRIONA - OEIRAS-PI">USF BRIONA - OEIRAS-PI</option>
+                                    <option value="USF BURITI DO REI - OEIRAS-PI">USF BURITI DO REI - OEIRAS-PI</option>
+                                    <option value="USF CONTENTAMENTO - OEIRAS-PI">USF CONTENTAMENTO - OEIRAS-PI</option>
+                                    <option value="USF MORRO REDONDO - OEIRAS-PI">USF MORRO REDONDO - OEIRAS-PI</option>
+                                    <option value="USF VARZEA TRANQUEIRA - OEIRAS-PI">USF VARZEA TRANQUEIRA - OEIRAS-PI
+                                    </option>
+                                    <option value="OUTRO">Outra unidade...</option>
+                                </select>
+                            </div>
+                            <span class="field-error" id="erro_unidade_rural"></span>
+
+                            <button type="button" id="btn_add_rural" class="btn btn-outline"
+                                style="margin-top: 12px; font-size: 0.9rem; padding: 10px 16px;">
+                                + Adicionar 2ª Unidade de Interior (Opcional)
+                            </button>
+                        </div>
+
+                        <div class="form-group" id="group_unidade_rural_2" style="display: none;">
+                            <label for="unidade_rural_2">Selecione a 2ª Unidade (Interior)</label>
+                            <div class="select-wrapper">
+                                <select id="unidade_rural_2" name="unidade_rural_2">
+                                    <option value="">Selecione a 2ª UBS do Interior...</option>
+                                    <option value="UBS ALTO SERENO - OEIRAS-PI">UBS ALTO SERENO - OEIRAS-PI</option>
+                                    <option value="UBS BELO MONTE - OEIRAS-PI">UBS BELO MONTE - OEIRAS-PI</option>
+                                    <option value="UBS BOA VISTA - OEIRAS-PI">UBS BOA VISTA - OEIRAS-PI</option>
+                                    <option value="UBS BURITI DO CANTO - OEIRAS-PI">UBS BURITI DO CANTO - OEIRAS-PI
+                                    </option>
+                                    <option value="UBS CANTO FAZENDA FRADE - OEIRAS-PI">UBS CANTO FAZENDA FRADE -
+                                        OEIRAS-PI</option>
+                                    <option value="US CARAIBAS - OEIRAS-PI">US CARAIBAS - OEIRAS-PI</option>
+                                    <option value="US CURRAL VELHO - OEIRAS-PI">US CURRAL VELHO - OEIRAS-PI</option>
+                                    <option value="US EXU - OEIRAS-PI">US EXU - OEIRAS-PI</option>
+                                    <option value="US MALHADA GRANDE - OEIRAS-PI">US MALHADA GRANDE - OEIRAS-PI</option>
+                                    <option value="US MALHADA REAL - OEIRAS-PI">US MALHADA REAL - OEIRAS-PI</option>
+                                    <option value="US MELANCIAS - OEIRAS-PI">US MELANCIAS - OEIRAS-PI</option>
+                                    <option value="US TAMBORIL SALINAS - OEIRAS-PI">US TAMBORIL SALINAS - OEIRAS-PI
+                                    </option>
+                                    <option value="USF ALAGOINHA- OEIRAS-PI">USF ALAGOINHA - OEIRAS-PI</option>
+                                    <option value="USF BOA NOVA - OEIRAS-PI">USF BOA NOVA - OEIRAS-PI</option>
+                                    <option value="USF BRIONA - OEIRAS-PI">USF BRIONA - OEIRAS-PI</option>
+                                    <option value="USF BURITI DO REI - OEIRAS-PI">USF BURITI DO REI - OEIRAS-PI</option>
+                                    <option value="USF CONTENTAMENTO - OEIRAS-PI">USF CONTENTAMENTO - OEIRAS-PI</option>
+                                    <option value="USF MORRO REDONDO - OEIRAS-PI">USF MORRO REDONDO - OEIRAS-PI</option>
+                                    <option value="USF VARZEA TRANQUEIRA - OEIRAS-PI">USF VARZEA TRANQUEIRA - OEIRAS-PI
+                                    </option>
+                                    <option value="OUTRO">Outra unidade...</option>
+                                </select>
+                            </div>
+                            <span class="field-error" id="erro_unidade_rural_2"></span>
+
+                            <button type="button" id="btn_rem_rural" class="btn btn-outline"
+                                style="margin-top: 12px; font-size: 0.9rem; padding: 10px 16px; color: var(--danger); border-color: var(--danger);">
+                                - Remover 2ª Unidade
+                            </button>
+                        </div>
+                        <div class="form-group" id="unidade_outra_group" style="display:none;">
+                            <label for="unidade_outra">Nome da unidade</label>
+                            <input type="text" id="unidade_outra" name="unidade_outra"
+                                placeholder="Digite o nome da unidade">
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep(1)">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                                </svg>
+                                Voltar
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep(3)">
+                                Revisar
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Confirmação -->
+                    <div class="form-step" id="step3">
+                        <div class="step-title">
+                            <div class="step-icon">✅</div>
+                            <h3>Confirme seus dados</h3>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-section">
+                                <h4>Dados Pessoais</h4>
+                                <div class="review-grid">
+                                    <div class="review-item">
+                                        <span class="review-label">Nome</span>
+                                        <span class="review-value" id="rev_nome">-</span>
+                                    </div>
+                                    <div class="review-item">
+                                        <span class="review-label">E-mail</span>
+                                        <span class="review-value" id="rev_email">-</span>
+                                    </div>
+                                    <div class="review-item">
+                                        <span class="review-label">CPF</span>
+                                        <span class="review-value" id="rev_cpf">-</span>
+                                    </div>
+                                    <div class="review-item">
+                                        <span class="review-label">Telefone</span>
+                                        <span class="review-value" id="rev_telefone">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review-section">
+                                <h4>Dados Profissionais</h4>
+                                <div class="review-grid">
+                                    <div class="review-item">
+                                        <span class="review-label">Solicitação</span>
+                                        <span class="review-value" id="rev_tipo">-</span>
+                                    </div>
+                                    <div class="review-item">
+                                        <span class="review-label">Cargo</span>
+                                        <span class="review-value" id="rev_cargo">-</span>
+                                    </div>
+                                    <div class="review-item">
+                                        <span class="review-label">Unidade</span>
+                                        <span class="review-value" id="rev_unidade">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep(2)">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                                </svg>
+                                Corrigir
+                            </button>
+                            <button type="submit" class="btn btn-success" id="btnEnviar">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                                </svg>
+                                Enviar Cadastro
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Success State -->
+                    <div class="form-step" id="stepSuccess" style="display:none;">
+                        <div class="success-container">
+                            <div class="success-icon">
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                    <circle cx="40" cy="40" r="36" stroke="#10b981" stroke-width="3" fill="#10b981"
+                                        fill-opacity="0.1" />
+                                    <path d="M25 40L35 50L55 30" stroke="#10b981" stroke-width="4"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <h3>Cadastro Enviado com Sucesso! 🎉</h3>
+                            <p>Sua solicitação foi registrada e será processada em breve. Você receberá uma notificação
+                                quando o cadastro estiver concluído.</p>
+                            <div class="success-info">
+                                <div class="info-item">
+                                    <span class="info-icon">📋</span>
+                                    <span>Protocolo: <strong id="protocolo">-</strong></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-icon">⏱️</span>
+                                    <span>Previsão: até 24 horas úteis</span>
+                                </div>
+                            </div>
+                            <a href="#" id="btn_whatsapp" class="btn"
+                                style="background: #25D366; color: white; display: none; margin-bottom: 12px; width: 100%; justify-content: center; font-size: 1.05rem;"
+                                target="_blank">
+                                📱 Enviar Cópia para o Suporte (WhatsApp)
+                            </a>
+                            <button type="button" class="btn btn-primary" onclick="novoFormulario()">
+                                Fazer Novo Cadastro
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div class="loading-overlay" id="loadingOverlay" style="display:none;">
+                        <div class="spinner"></div>
+                        <p>Enviando cadastro...</p>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Desenvolvido por <strong style="color: #f97316;">Eros Fernandes</strong></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
