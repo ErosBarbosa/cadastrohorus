@@ -4,7 +4,7 @@
 
 // === CONFIGURAÇÃO ===
 // URL do Apps Script Web App (será configurada após deploy)
-const APPS_SCRIPT_URL = '';  // Preencher após deploy do Apps Script
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx-crCng7IIymeazroCwvWhoIXxtYFopMFC6vZZ_g-ZFsIvDVQ0hww3CG6NflWvEWwa/exec';  // Preencher após deploy do Apps Script
 
 let currentStep = 1;
 
