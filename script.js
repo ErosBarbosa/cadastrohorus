@@ -292,7 +292,7 @@ document.getElementById('formCadastro').addEventListener('submit', async functio
     }
 
     const dados = {
-        tipo_acao: document.querySelector('input[name="tipo_acao"]:checked')?.value || 'CADASTRO',
+        tipo_acao: document.querySelector('input[name="tipo_acao"]:checked')?.value === 'ATUALIZAR_PERFIL' ? 'TROCA_UBS' : 'CADASTRO',
         nome_completo: document.getElementById('nome_completo').value.trim().toUpperCase(),
         email: document.getElementById('email').value.trim().toLowerCase(),
         cpf: document.getElementById('cpf').value,
