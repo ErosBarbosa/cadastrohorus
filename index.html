@@ -321,6 +321,18 @@
                                 placeholder="Digite o nome da unidade">
                         </div>
 
+                        <div class="form-group" id="justificativa_group" style="display:none;">
+                            <label for="justificativa">Justificativa <span style="font-weight:400; color: var(--text-muted); font-size:0.85rem;">(opcional – apenas para casos especiais)</span></label>
+                            <textarea id="justificativa" name="justificativa" rows="3"
+                                placeholder="Ex: Mudança de cargo, lotação específica, etc."
+                                style="width:100%; padding: 12px 16px; border-radius: 10px; border: 2px solid var(--border); background: var(--surface); color: var(--text-primary); font-family: inherit; font-size: 1rem; resize: vertical; transition: border-color 0.2s;"></textarea>
+                        </div>
+
+                        <div id="perfil_preview" style="display:none; margin-top: 8px; padding: 14px 18px; border-radius: 12px; background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); border: 1px solid rgba(255,255,255,0.15);">
+                            <p style="margin:0; font-size: 0.82rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em;">Perfil que será atribuído</p>
+                            <p id="perfil_preview_text" style="margin: 4px 0 0; font-size: 1.05rem; font-weight: 600; color: #fff;"></p>
+                        </div>
+
                         <div class="form-actions">
                             <button type="button" class="btn btn-secondary" onclick="prevStep(1)">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -455,6 +467,7 @@
         </footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
 

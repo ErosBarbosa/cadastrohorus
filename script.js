@@ -28,6 +28,48 @@ document.getElementById('telefone').addEventListener('input', function (e) {
     e.target.value = e.target.value.replace(/\D/g, '').slice(0, 9);
 });
 
+// === PREVIEW DE PERFIL BASEADO NA UBS ===
+function atualizarPerfilPreview(ubsNome) {
+    const preview = document.getElementById('perfil_preview');
+    const previewText = document.getElementById('perfil_preview_text');
+    if (!ubsNome || ubsNome === '' || ubsNome === 'OUTRO') {
+        preview.style.display = 'none';
+        return;
+    }
+    const perfil = ubsNome.toUpperCase().includes('SESAM ALMOXARIFADO')
+        ? '📦 Almoxarifado/CAF I'
+        : '💊 Farmácia/Unidade de Saúde I';
+    previewText.textContent = perfil;
+    preview.style.display = 'block';
+}
+
+// === MOSTRAR JUSTIFICATIVA APENAS PARA TROCA DE UBS ===
+function atualizarJustificativaGroup() {
+    const tipo = document.querySelector('input[name="tipo_acao"]:checked');
+    const grp = document.getElementById('justificativa_group');
+    if (tipo && tipo.value === 'ATUALIZAR_PERFIL') {
+        grp.style.display = 'block';
+    } else {
+        grp.style.display = 'none';
+        document.getElementById('justificativa').value = '';
+    }
+}
+document.querySelectorAll('input[name="tipo_acao"]').forEach(r =>
+    r.addEventListener('change', atualizarJustificativaGroup)
+);
+
+// === CONFETTI ===
+function launchConfetti() {
+    if (typeof confetti !== 'function') return;
+    const end = Date.now() + 2500;
+    const colors = ['#06b6d4', '#10b981', '#f97316', '#8b5cf6'];
+    (function frame() {
+        confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 }, colors });
+        confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1 }, colors });
+        if (Date.now() < end) requestAnimationFrame(frame);
+    }());
+}
+
 // === CARGO "OUTRO" TOGGLE ===
 document.getElementById('cargo_funcao').addEventListener('change', function () {
     const outroGroup = document.getElementById('cargo_outro_group');
@@ -58,6 +100,7 @@ document.querySelectorAll('input[name="zona_unidade"]').forEach(radio => {
     document.getElementById(id).addEventListener('change', function () {
         const outroGroup = document.getElementById('unidade_outra_group');
         outroGroup.style.display = this.value === 'OUTRO' ? 'block' : 'none';
+        atualizarPerfilPreview(this.value);
     });
 });
 
@@ -300,6 +343,7 @@ document.getElementById('formCadastro').addEventListener('submit', async functio
         telefone: document.getElementById('telefone').value,
         cargo_funcao: cargo === 'OUTRO' ? document.getElementById('cargo_outro').value.trim().toUpperCase() : cargo,
         unidade_setor: unidade,
+        justificativa: document.getElementById('justificativa').value.trim(),
         data_envio: new Date().toISOString(),
         status_automacao: 'PENDENTE'
     };
@@ -347,6 +391,9 @@ function showSuccess(protocolo, dados) {
     success.style.display = 'block';
     success.classList.add('active');
     document.getElementById('protocolo').textContent = protocolo;
+
+    // 🎉 Confetti!
+    launchConfetti();
 
     // Preparar link do WhatsApp
     if (dados) {
