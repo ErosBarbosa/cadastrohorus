@@ -101,7 +101,7 @@ document.querySelectorAll('input[name="zona_unidade"]').forEach(radio => {
         const outroGroup = document.getElementById('unidade_outra_group');
         outroGroup.style.display = this.value === 'OUTRO' ? 'block' : 'none';
         atualizarPerfilPreview(this.value);
-        if(this.value && this.value !== 'OUTRO') {
+        if (this.value && this.value !== 'OUTRO') {
             document.getElementById('btn_add_unidade').style.display = 'inline-block';
         } else {
             document.getElementById('btn_add_unidade').style.display = 'none';
@@ -303,7 +303,7 @@ function populateReview() {
 
     if (unidadeElement) {
         let texto = unidadeElement.value === 'OUTRO' ? document.getElementById('unidade_outra').value : unidadeElement.options[unidadeElement.selectedIndex].text;
-        
+
         if (document.getElementById('group_unidade_2').style.display !== 'none') {
             const u2 = document.getElementById('unidade_2');
             if (u2 && u2.value) {
@@ -357,11 +357,35 @@ document.getElementById('formCadastro').addEventListener('submit', async functio
         status_automacao: 'PENDENTE'
     };
 
+    const protocolo = gerarProtocolo();
+
+    // Redirecionamento INSTANTÂNEO para o WhatsApp (evitar bloqueios de pop-up do navegador)
+    const numeroWhatsapp = "5589994250078";
+    const tipoText = dados.tipo_acao === 'CADASTRO' ? 'Novo Cadastro' : 'Atualizar Perfil / Trocar UBS';
+    const msg = `*Novo Formulário Hórus*\n` +
+        `Protocolo: ${protocolo}\n\n` +
+        `*Tipo:* ${tipoText}\n` +
+        `*Nome:* ${dados.nome_completo}\n` +
+        `*CPF:* ${dados.cpf}\n` +
+        `*Telefone:* (${dados.ddd}) ${dados.telefone}\n` +
+        `*E-mail:* ${dados.email}\n` +
+        `*Cargo:* ${dados.cargo_funcao}\n` +
+        `*Unidade(s):* ${dados.unidade_setor}`;
+
+    const encodedMsg = encodeURIComponent(msg);
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${numeroWhatsapp}&text=${encodedMsg}`;
+
+    // Abre o WhatsApp imediatamente no ato do clique
+    window.open(whatsappUrl, '_blank');
+
+    loading.style.display = 'flex';
+    btnEnviar.disabled = true;
+
     try {
         if (!APPS_SCRIPT_URL) {
             // Demo mode: simula envio
             await new Promise(r => setTimeout(r, 2000));
-            showSuccess(gerarProtocolo(), dados);
+            showSuccess(protocolo, dados);
             return;
         }
 
@@ -372,7 +396,7 @@ document.getElementById('formCadastro').addEventListener('submit', async functio
             body: JSON.stringify(dados)
         });
 
-        showSuccess(gerarProtocolo(), dados);
+        showSuccess(protocolo, dados);
     } catch (err) {
         console.error('Erro ao enviar:', err);
         alert('Erro ao enviar cadastro. Tente novamente.');
@@ -404,7 +428,7 @@ function showSuccess(protocolo, dados) {
     // 🎉 Confetti!
     launchConfetti();
 
-    // Preparar link do WhatsApp
+    // Link fallback button just in case the popup blocker still caught it
     if (dados) {
         const numeroWhatsapp = "5589994250078";
         const tipoText = dados.tipo_acao === 'CADASTRO' ? 'Novo Cadastro' : 'Atualizar Perfil / Trocar UBS';
@@ -423,11 +447,6 @@ function showSuccess(protocolo, dados) {
 
         const btnWhatsapp = document.getElementById('btn_whatsapp');
         btnWhatsapp.href = whatsappUrl;
-        
-        // Redirecionamento automático após 1.5s para forçar o contato
-        setTimeout(() => {
-            window.open(whatsappUrl, '_blank');
-        }, 1500);
     }
 }
 
