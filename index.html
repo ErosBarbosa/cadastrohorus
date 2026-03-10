@@ -9,7 +9,8 @@
         content="Formulário de cadastro e atualização de perfil no sistema Hórus - SCAWEB para profissionais de saúde de Oeiras-PI">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -242,7 +243,7 @@
                             <label for="unidade_rural">Selecione a Unidade (Interior)</label>
                             <div class="select-wrapper">
                                 <select id="unidade_rural" name="unidade_rural">
-                                    <option value="">Selecione a 1ª UBS do Interior...</option>
+                                    <option value="">Selecione a UBS do Interior...</option>
                                     <option value="UBS ALTO SERENO - OEIRAS-PI">UBS ALTO SERENO - OEIRAS-PI</option>
                                     <option value="UBS BELO MONTE - OEIRAS-PI">UBS BELO MONTE - OEIRAS-PI</option>
                                     <option value="UBS BOA VISTA - OEIRAS-PI">UBS BOA VISTA - OEIRAS-PI</option>
@@ -270,48 +271,78 @@
                                 </select>
                             </div>
                             <span class="field-error" id="erro_unidade_rural"></span>
+                        </div>
 
-                            <button type="button" id="btn_add_rural" class="btn btn-outline"
-                                style="margin-top: 12px; font-size: 0.9rem; padding: 10px 16px;">
-                                + Adicionar 2ª Unidade de Interior (Opcional)
+                        <div style="margin-bottom: 24px; text-align: left;" id="btn_add_unidade_container">
+                            <button type="button" id="btn_add_unidade" class="btn btn-secondary"
+                                style="font-size: 0.9rem; padding: 10px 16px; display: none;">
+                                + Adicionar 2ª Unidade (Acesso Duplo)
                             </button>
                         </div>
 
-                        <div class="form-group" id="group_unidade_rural_2" style="display: none;">
-                            <label for="unidade_rural_2">Selecione a 2ª Unidade (Interior)</label>
+                        <div class="form-group" id="group_unidade_2"
+                            style="display: none; padding-top: 16px; border-top: 1px dashed var(--border);">
+                            <label for="unidade_2">Selecione a 2ª Unidade (Opcional)</label>
                             <div class="select-wrapper">
-                                <select id="unidade_rural_2" name="unidade_rural_2">
-                                    <option value="">Selecione a 2ª UBS do Interior...</option>
-                                    <option value="UBS ALTO SERENO - OEIRAS-PI">UBS ALTO SERENO - OEIRAS-PI</option>
-                                    <option value="UBS BELO MONTE - OEIRAS-PI">UBS BELO MONTE - OEIRAS-PI</option>
-                                    <option value="UBS BOA VISTA - OEIRAS-PI">UBS BOA VISTA - OEIRAS-PI</option>
-                                    <option value="UBS BURITI DO CANTO - OEIRAS-PI">UBS BURITI DO CANTO - OEIRAS-PI
-                                    </option>
-                                    <option value="UBS CANTO FAZENDA FRADE - OEIRAS-PI">UBS CANTO FAZENDA FRADE -
-                                        OEIRAS-PI</option>
-                                    <option value="US CARAIBAS - OEIRAS-PI">US CARAIBAS - OEIRAS-PI</option>
-                                    <option value="US CURRAL VELHO - OEIRAS-PI">US CURRAL VELHO - OEIRAS-PI</option>
-                                    <option value="US EXU - OEIRAS-PI">US EXU - OEIRAS-PI</option>
-                                    <option value="US MALHADA GRANDE - OEIRAS-PI">US MALHADA GRANDE - OEIRAS-PI</option>
-                                    <option value="US MALHADA REAL - OEIRAS-PI">US MALHADA REAL - OEIRAS-PI</option>
-                                    <option value="US MELANCIAS - OEIRAS-PI">US MELANCIAS - OEIRAS-PI</option>
-                                    <option value="US TAMBORIL SALINAS - OEIRAS-PI">US TAMBORIL SALINAS - OEIRAS-PI
-                                    </option>
-                                    <option value="USF ALAGOINHA- OEIRAS-PI">USF ALAGOINHA - OEIRAS-PI</option>
-                                    <option value="USF BOA NOVA - OEIRAS-PI">USF BOA NOVA - OEIRAS-PI</option>
-                                    <option value="USF BRIONA - OEIRAS-PI">USF BRIONA - OEIRAS-PI</option>
-                                    <option value="USF BURITI DO REI - OEIRAS-PI">USF BURITI DO REI - OEIRAS-PI</option>
-                                    <option value="USF CONTENTAMENTO - OEIRAS-PI">USF CONTENTAMENTO - OEIRAS-PI</option>
-                                    <option value="USF MORRO REDONDO - OEIRAS-PI">USF MORRO REDONDO - OEIRAS-PI</option>
-                                    <option value="USF VARZEA TRANQUEIRA - OEIRAS-PI">USF VARZEA TRANQUEIRA - OEIRAS-PI
-                                    </option>
+                                <select id="unidade_2" name="unidade_2">
+                                    <option value="">Selecione a 2ª UBS (Qualquer zona)...</option>
+                                    <optgroup label="Zona Urbana (Cidade)">
+                                        <option value="CAPS AD - OEIRAS-PI">CAPS AD - OEIRAS-PI</option>
+                                        <option value="CAPS I - OEIRAS-PI">CAPS I - OEIRAS-PI</option>
+                                        <option value="CENTRO DE CONTROLE DE VETORES E ZOONOSES DE OEIRAS - OEIRAS-PI">
+                                            CENTRO DE CONTROLE DE VETORES</option>
+                                        <option
+                                            value="CENTRO DE ESPECIALIDADES ODONTOLOGICAS CEO DE OEIRAS - OEIRAS-PI">CEO
+                                            DE OEIRAS</option>
+                                        <option value="CS DR PAULO DE TARSO - OEIRAS-PI">CS DR PAULO DE TARSO</option>
+                                        <option value="SAMU 192 OEIRAS USB 01 - OEIRAS-PI">SAMU 192 OEIRAS USB 01
+                                        </option>
+                                        <option value="SAMU 192 OEIRAS USB 02 - OEIRAS-PI">SAMU 192 OEIRAS USB 02
+                                        </option>
+                                        <option value="SAMU 192 OEIRAS USB 03 - OEIRAS-PI">SAMU 192 OEIRAS USB 03
+                                        </option>
+                                        <option value="SAMU 192 SUPORTE AVANCADO USA 01 - OEIRAS-PI">SAMU 192 USA 01
+                                        </option>
+                                        <option value="SESAM ALMOXARIFADO - OEIRAS-PI">SESAM ALMOXARIFADO</option>
+                                        <option value="SESAM FARMÁCIA - OEIRAS-PI">SESAM FARMÁCIA</option>
+                                        <option value="UBS JURANI - OEIRAS-PI">UBS JURANI - OEIRAS-PI</option>
+                                        <option value="USF CANELA DE OEIRAS - OEIRAS-PI">USF CANELA DE OEIRAS</option>
+                                        <option value="USF DE OEIRAS NOVA - OEIRAS-PI">USF DE OEIRAS NOVA</option>
+                                        <option value="USF DR HAILTON ALVES - OEIRAS-PI">USF DR HAILTON ALVES</option>
+                                        <option value="USF DR PEDRO BARBOSA - OEIRAS-PI">USF DR PEDRO BARBOSA</option>
+                                        <option value="USF JUREMINHA - OEIRAS-PI">USF JUREMINHA - OEIRAS-PI</option>
+                                        <option value="USF RODAGEM DE PICOS - OEIRAS-PI">USF RODAGEM DE PICOS</option>
+                                        <option value="USF VARZEA - OEIRAS-PI">USF VARZEA - OEIRAS-PI</option>
+                                    </optgroup>
+                                    <optgroup label="Zona Rural (Interior)">
+                                        <option value="UBS ALTO SERENO - OEIRAS-PI">UBS ALTO SERENO</option>
+                                        <option value="UBS BELO MONTE - OEIRAS-PI">UBS BELO MONTE</option>
+                                        <option value="UBS BOA VISTA - OEIRAS-PI">UBS BOA VISTA</option>
+                                        <option value="UBS BURITI DO CANTO - OEIRAS-PI">UBS BURITI DO CANTO</option>
+                                        <option value="UBS CANTO FAZENDA FRADE - OEIRAS-PI">UBS CANTO FAZENDA FRADE
+                                        </option>
+                                        <option value="US CARAIBAS - OEIRAS-PI">US CARAIBAS</option>
+                                        <option value="US CURRAL VELHO - OEIRAS-PI">US CURRAL VELHO</option>
+                                        <option value="US EXU - OEIRAS-PI">US EXU</option>
+                                        <option value="US MALHADA GRANDE - OEIRAS-PI">US MALHADA GRANDE</option>
+                                        <option value="US MALHADA REAL - OEIRAS-PI">US MALHADA REAL</option>
+                                        <option value="US MELANCIAS - OEIRAS-PI">US MELANCIAS</option>
+                                        <option value="US TAMBORIL SALINAS - OEIRAS-PI">US TAMBORIL SALINAS</option>
+                                        <option value="USF ALAGOINHA- OEIRAS-PI">USF ALAGOINHA</option>
+                                        <option value="USF BOA NOVA - OEIRAS-PI">USF BOA NOVA</option>
+                                        <option value="USF BRIONA - OEIRAS-PI">USF BRIONA</option>
+                                        <option value="USF BURITI DO REI - OEIRAS-PI">USF BURITI DO REI</option>
+                                        <option value="USF CONTENTAMENTO - OEIRAS-PI">USF CONTENTAMENTO</option>
+                                        <option value="USF MORRO REDONDO - OEIRAS-PI">USF MORRO REDONDO</option>
+                                        <option value="USF VARZEA TRANQUEIRA - OEIRAS-PI">USF VARZEA TRANQUEIRA</option>
+                                    </optgroup>
                                     <option value="OUTRO">Outra unidade...</option>
                                 </select>
                             </div>
-                            <span class="field-error" id="erro_unidade_rural_2"></span>
+                            <span class="field-error" id="erro_unidade_2"></span>
 
-                            <button type="button" id="btn_rem_rural" class="btn btn-outline"
-                                style="margin-top: 12px; font-size: 0.9rem; padding: 10px 16px; color: var(--danger); border-color: var(--danger);">
+                            <button type="button" id="btn_rem_unidade" class="btn btn-secondary"
+                                style="margin-top: 12px; font-size: 0.9rem; padding: 10px 16px; color: var(--danger); border-color: rgba(239, 68, 68, 0.3);">
                                 - Remover 2ª Unidade
                             </button>
                         </div>
@@ -322,15 +353,21 @@
                         </div>
 
                         <div class="form-group" id="justificativa_group" style="display:none;">
-                            <label for="justificativa">Justificativa <span style="font-weight:400; color: var(--text-muted); font-size:0.85rem;">(opcional – apenas para casos especiais)</span></label>
+                            <label for="justificativa">Justificativa <span
+                                    style="font-weight:400; color: var(--text-muted); font-size:0.85rem;">(opcional –
+                                    apenas para casos especiais)</span></label>
                             <textarea id="justificativa" name="justificativa" rows="3"
                                 placeholder="Ex: Mudança de cargo, lotação específica, etc."
                                 style="width:100%; padding: 12px 16px; border-radius: 10px; border: 2px solid var(--border); background: var(--surface); color: var(--text-primary); font-family: inherit; font-size: 1rem; resize: vertical; transition: border-color 0.2s;"></textarea>
                         </div>
 
-                        <div id="perfil_preview" style="display:none; margin-top: 8px; padding: 14px 18px; border-radius: 12px; background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); border: 1px solid rgba(255,255,255,0.15);">
-                            <p style="margin:0; font-size: 0.82rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em;">Perfil que será atribuído</p>
-                            <p id="perfil_preview_text" style="margin: 4px 0 0; font-size: 1.05rem; font-weight: 600; color: #fff;"></p>
+                        <div id="perfil_preview"
+                            style="display:none; margin-top: 8px; padding: 14px 18px; border-radius: 12px; background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); border: 1px solid rgba(255,255,255,0.15);">
+                            <p
+                                style="margin:0; font-size: 0.82rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em;">
+                                Perfil que será atribuído</p>
+                            <p id="perfil_preview_text"
+                                style="margin: 4px 0 0; font-size: 1.05rem; font-weight: 600; color: #fff;"></p>
                         </div>
 
                         <div class="form-actions">
@@ -420,36 +457,56 @@
                     <!-- Success State -->
                     <div class="form-step" id="stepSuccess" style="display:none;">
                         <div class="success-container">
-                            <div class="success-icon">
+                            <div class="success-icon" style="margin-bottom: 0;">
                                 <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                                    <circle cx="40" cy="40" r="36" stroke="#10b981" stroke-width="3" fill="#10b981"
+                                    <circle cx="40" cy="40" r="36" stroke="#f59e0b" stroke-width="3" fill="#f59e0b"
                                         fill-opacity="0.1" />
-                                    <path d="M25 40L35 50L55 30" stroke="#10b981" stroke-width="4"
-                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M40 20v20l10 10" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </div>
-                            <h3>Cadastro Enviado com Sucesso! 🎉</h3>
-                            <p>Sua solicitação foi registrada e será processada em breve. Você receberá uma notificação
-                                quando o cadastro estiver concluído.</p>
-                            <div class="success-info">
+                            <h3 style="color: var(--warning);">Quase lá! Fila Iniciada ⏳</h3>
+                            <p style="font-size: 1.05rem; font-weight: 500; color: var(--text);">Os seus dados foram
+                                salvos no nosso banco de dados da Saúde.</p>
+                            <p style="margin-top: 8px; font-size: 0.95rem;"><strong>PASSO OBRIGATÓRIO:</strong> Para
+                                validarmos sua urgência e a fila andar, você precisa avisar o Suporte pressionando o
+                                botão verde gigante abaixo.</p>
+
+                            <div class="success-info" style="margin-top: 20px;">
                                 <div class="info-item">
                                     <span class="info-icon">📋</span>
-                                    <span>Protocolo: <strong id="protocolo">-</strong></span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-icon">⏱️</span>
-                                    <span>Previsão: até 24 horas úteis</span>
+                                    <span>Seu Protocolo: <strong id="protocolo"
+                                            style="color: var(--primary); font-size: 1.1rem;">-</strong></span>
                                 </div>
                             </div>
+
                             <a href="#" id="btn_whatsapp" class="btn"
-                                style="background: #25D366; color: white; display: none; margin-bottom: 12px; width: 100%; justify-content: center; font-size: 1.05rem;"
+                                style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; display:flex; margin-bottom: 24px; width: 100%; justify-content: center; font-size: 1.15rem; padding: 20px; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; animation: pulse-green 2s infinite;"
                                 target="_blank">
-                                📱 Enviar Cópia para o Suporte (WhatsApp)
+                                � ENVIAR PARA O SUPORTE
                             </a>
-                            <button type="button" class="btn btn-primary" onclick="novoFormulario()">
-                                Fazer Novo Cadastro
+
+                            <button type="button" class="btn btn-secondary" onclick="novoFormulario()"
+                                style="width: 100%;">
+                                Voltar e fazer Novo Cadastro
                             </button>
                         </div>
+
+                        <style>
+                            @keyframes pulse-green {
+                                0% {
+                                    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+                                }
+
+                                70% {
+                                    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+                                }
+
+                                100% {
+                                    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+                                }
+                            }
+                        </style>
                     </div>
 
                     <!-- Loading State -->

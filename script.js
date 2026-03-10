@@ -101,6 +101,11 @@ document.querySelectorAll('input[name="zona_unidade"]').forEach(radio => {
         const outroGroup = document.getElementById('unidade_outra_group');
         outroGroup.style.display = this.value === 'OUTRO' ? 'block' : 'none';
         atualizarPerfilPreview(this.value);
+        if(this.value && this.value !== 'OUTRO') {
+            document.getElementById('btn_add_unidade').style.display = 'inline-block';
+        } else {
+            document.getElementById('btn_add_unidade').style.display = 'none';
+        }
     });
 });
 
@@ -112,16 +117,16 @@ document.getElementById('nome_completo').addEventListener('input', function (e) 
     e.target.setSelectionRange(start, end);
 });
 
-// === SEGUNDA UNIDADE RURAL TOGGLE ===
-document.getElementById('btn_add_rural').addEventListener('click', function () {
-    document.getElementById('group_unidade_rural_2').style.display = 'block';
+// === SEGUNDA UNIDADE (UNIVERSAL) TOGGLE ===
+document.getElementById('btn_add_unidade').addEventListener('click', function () {
+    document.getElementById('group_unidade_2').style.display = 'block';
     this.style.display = 'none'; // hide add button
 });
 
-document.getElementById('btn_rem_rural').addEventListener('click', function () {
-    document.getElementById('group_unidade_rural_2').style.display = 'none';
-    document.getElementById('unidade_rural_2').value = '';
-    document.getElementById('btn_add_rural').style.display = 'inline-block';
+document.getElementById('btn_rem_unidade').addEventListener('click', function () {
+    document.getElementById('group_unidade_2').style.display = 'none';
+    document.getElementById('unidade_2').value = '';
+    document.getElementById('btn_add_unidade').style.display = 'inline-block';
 });
 
 // === NAVIGATION ===
@@ -227,14 +232,14 @@ function validateStep(step) {
             valid = false;
         }
 
-        const groupRural2 = document.getElementById('group_unidade_rural_2');
-        const unidadeRural2 = document.getElementById('unidade_rural_2');
-        if (zona && zona.value === 'RURAL' && groupRural2.style.display !== 'none') {
-            if (!unidadeRural2.value) {
-                showError('unidade_rural_2', 'Selecione a 2ª unidade ou remova este campo');
+        const groupUnidade2 = document.getElementById('group_unidade_2');
+        const unidade2 = document.getElementById('unidade_2');
+        if (zona && groupUnidade2.style.display !== 'none') {
+            if (!unidade2.value) {
+                showError('unidade_2', 'Selecione a 2ª unidade ou remova este campo');
                 valid = false;
-            } else if (unidadeRural2.value === unidade) {
-                showError('unidade_rural_2', 'A 2ª unidade não pode ser igual à 1ª');
+            } else if (unidade2.value === unidade) {
+                showError('unidade_2', 'A 2ª unidade não pode ser igual à 1ª');
                 valid = false;
             }
         }
@@ -298,8 +303,12 @@ function populateReview() {
 
     if (unidadeElement) {
         let texto = unidadeElement.value === 'OUTRO' ? document.getElementById('unidade_outra').value : unidadeElement.options[unidadeElement.selectedIndex].text;
-        if (unidadeElement2 && unidadeElement2.value) {
-            texto += ' / ' + (unidadeElement2.value === 'OUTRO' ? '' : unidadeElement2.options[unidadeElement2.selectedIndex].text);
+        
+        if (document.getElementById('group_unidade_2').style.display !== 'none') {
+            const u2 = document.getElementById('unidade_2');
+            if (u2 && u2.value) {
+                texto += ' / ' + (u2.value === 'OUTRO' ? '' : u2.options[u2.selectedIndex].text);
+            }
         }
         document.getElementById('rev_unidade').textContent = texto;
     }
@@ -326,8 +335,8 @@ document.getElementById('formCadastro').addEventListener('submit', async functio
 
         unidade = unidade1;
 
-        if (zona.value === 'RURAL' && document.getElementById('group_unidade_rural_2').style.display !== 'none') {
-            const unidade2 = document.getElementById('unidade_rural_2').value;
+        if (document.getElementById('group_unidade_2').style.display !== 'none') {
+            const unidade2 = document.getElementById('unidade_2').value;
             if (unidade2 && unidade2 !== unidade1) {
                 unidade += ' / ' + (unidade2 === 'OUTRO' ? '' : unidade2);
             }
@@ -414,7 +423,11 @@ function showSuccess(protocolo, dados) {
 
         const btnWhatsapp = document.getElementById('btn_whatsapp');
         btnWhatsapp.href = whatsappUrl;
-        btnWhatsapp.style.display = 'inline-flex';
+        
+        // Redirecionamento automático após 1.5s para forçar o contato
+        setTimeout(() => {
+            window.open(whatsappUrl, '_blank');
+        }, 1500);
     }
 }
 
@@ -426,7 +439,7 @@ function novoFormulario() {
     document.getElementById('unidade_outra_group').style.display = 'none';
     document.getElementById('group_unidade_urbana').style.display = 'none';
     document.getElementById('group_unidade_rural').style.display = 'none';
-    document.getElementById('group_unidade_rural_2').style.display = 'none';
-    document.getElementById('btn_add_rural').style.display = 'inline-block';
+    document.getElementById('group_unidade_2').style.display = 'none';
+    document.getElementById('btn_add_unidade').style.display = 'none';
     setStep(1);
 }
