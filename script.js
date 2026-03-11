@@ -343,21 +343,23 @@ document.getElementById('formCadastro').addEventListener('submit', async functio
         }
     }
 
+    const protocolo = gerarProtocolo();
+
     const dados = {
+        chave: protocolo,
         tipo_acao: document.querySelector('input[name="tipo_acao"]:checked')?.value === 'ATUALIZAR_PERFIL' ? 'TROCA_UBS' : 'CADASTRO',
         nome_completo: document.getElementById('nome_completo').value.trim().toUpperCase(),
         email: document.getElementById('email').value.trim().toLowerCase(),
         cpf: document.getElementById('cpf').value,
         ddd: document.getElementById('ddd').value,
-        telefone: document.getElementById('telefone').value,
+        telefone_sem_ddd: document.getElementById('telefone').value, // Envia separado
+        telefone_completo: `(${document.getElementById('ddd').value}) ${document.getElementById('telefone').value}`, // Mantém legado
         cargo_funcao: cargo === 'OUTRO' ? document.getElementById('cargo_outro').value.trim().toUpperCase() : cargo,
         unidade_setor: unidade,
         justificativa: document.getElementById('justificativa').value.trim(),
         data_envio: new Date().toISOString(),
         status_automacao: 'PENDENTE'
     };
-
-    const protocolo = gerarProtocolo();
 
     // Redirecionamento INSTANTÂNEO para o WhatsApp (evitar bloqueios de pop-up do navegador)
     const numeroWhatsapp = "5589994250078";
@@ -366,8 +368,7 @@ document.getElementById('formCadastro').addEventListener('submit', async functio
         `Protocolo: ${protocolo}\n\n` +
         `*Tipo:* ${tipoText}\n` +
         `*Nome:* ${dados.nome_completo}\n` +
-        `*CPF:* ${dados.cpf}\n` +
-        `*Telefone:* (${dados.ddd}) ${dados.telefone}\n` +
+        `*Telefone:* ${dados.telefone_completo}\n` +
         `*E-mail:* ${dados.email}\n` +
         `*Cargo:* ${dados.cargo_funcao}\n` +
         `*Unidade(s):* ${dados.unidade_setor}`;
