@@ -353,6 +353,7 @@ document.getElementById('formCadastro').addEventListener('submit', async functio
         cpf: document.getElementById('cpf').value,
         ddd: document.getElementById('ddd').value,
         telefone_sem_ddd: document.getElementById('telefone').value, // Envia separado
+        telefone: document.getElementById('telefone').value, // Duplicado para compatibilidade
         telefone_completo: `(${document.getElementById('ddd').value}) ${document.getElementById('telefone').value}`, // Mantém legado
         cargo_funcao: cargo === 'OUTRO' ? document.getElementById('cargo_outro').value.trim().toUpperCase() : cargo,
         unidade_setor: unidade,
@@ -438,7 +439,7 @@ function showSuccess(protocolo, dados) {
             `*Tipo:* ${tipoText}\n` +
             `*Nome:* ${dados.nome_completo}\n` +
             `*CPF:* ${dados.cpf}\n` +
-            `*Telefone:* (${dados.ddd}) ${dados.telefone}\n` +
+            `*Telefone:* ${dados.telefone_completo}\n` +
             `*E-mail:* ${dados.email}\n` +
             `*Cargo:* ${dados.cargo_funcao}\n` +
             `*Unidade(s):* ${dados.unidade_setor}`;

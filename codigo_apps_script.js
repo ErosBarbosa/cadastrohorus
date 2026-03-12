@@ -62,10 +62,13 @@ function doPost(e) {
                     newRow[i] = dados.ddd || '';
                     break;
                 case 'telefone_sem_ddd':
-                    newRow[i] = dados.telefone || '';
+                    newRow[i] = dados.telefone_sem_ddd || dados.telefone || '';
                     break;
                 case 'telefone_completo':
-                    newRow[i] = (dados.ddd && dados.telefone) ? `(${dados.ddd}) ${dados.telefone}` : '';
+                    newRow[i] = dados.telefone_completo || ((dados.ddd && (dados.telefone_sem_ddd || dados.telefone)) ? `(${dados.ddd}) ${dados.telefone_sem_ddd || dados.telefone}` : '');
+                    break;
+                case 'justificativa':
+                    newRow[i] = dados.justificativa || '';
                     break;
                 case 'cargo_funcao':
                     newRow[i] = dados.cargo_funcao || '';
@@ -90,13 +93,15 @@ function doPost(e) {
             // Fallback genérico caso a planilha não tenha os cabeçalhos esperados
             sheet.appendRow([
                 chave,
-                dados.nome_completo,
-                dados.cpf,
-                dados.email,
-                `(${dados.ddd}) ${dados.telefone}`,
-                dados.cargo_funcao,
-                dados.unidade_setor,
-                dados.tipo_acao,
+                dados.nome_completo || '',
+                dados.cpf || '',
+                dados.email || '',
+                dados.ddd || '',
+                dados.telefone_sem_ddd || dados.telefone || '',
+                dados.cargo_funcao || '',
+                dados.unidade_setor || '',
+                dados.tipo_acao || 'CADASTRO',
+                dados.justificativa || '',
                 'PENDENTE',
                 Utilities.formatDate(timestamp, "America/Sao_Paulo", "dd/MM/yyyy HH:mm:ss")
             ]);
