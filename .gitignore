@@ -1,0 +1,20 @@
+# Secrets and local runtime config
+python_bot/.env
+python_bot/service_account.json
+python_bot/.env.*
+
+# Python virtualenv and caches
+python_bot/.venv/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Runtime artifacts
+python_bot/logs/
+*.log
+
+# Local tooling and derived files
+.DS_Store
+Thumbs.db
+formulario/.git/
+docs/rendered/

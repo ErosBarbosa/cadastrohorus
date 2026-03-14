@@ -1,0 +1,154 @@
+{
+  "main": {
+    "menu_cadastro": [
+      "xpath=//a[contains(., 'Solicitação de Cadastro de Usuário')]",
+      "xpath=//a[contains(., 'Cadastro de Novo Usuário')]",
+      "xpath=//a[contains(., 'Cadastro de Usuário')]"
+    ],
+    "input_email": [
+      "xpath=//input[@name='ds_email']",
+      "xpath=//input[contains(@name,'email') or contains(@id,'email')]"
+    ],
+    "input_nome": [
+      "xpath=//input[@name='no_usuario']",
+      "xpath=//input[contains(@name,'nome') or contains(@id,'nome') or contains(@name,'usuario')]"
+    ],
+    "input_cpf": [
+      "xpath=//input[@name='co_cpf_solicitacao']",
+      "xpath=//input[contains(@name,'cpf') or contains(@id,'cpf')]"
+    ],
+    "botao_entidade": [
+      "xpath=//input[contains(@onclick,'pesquisaEntidade')]",
+      "xpath=//input[@name='pesquisa' and @type='button']"
+    ],
+    "input_entidade_texto": [
+      "xpath=//input[@name='no_orgao_usuario']"
+    ],
+    "input_bairro": [
+      "xpath=//input[@name='ds_bairro']"
+    ],
+    "input_cep": [
+      "xpath=//input[@name='nu_cep']"
+    ],
+    "input_endereco": [
+      "xpath=//input[@name='ds_endereco']"
+    ],
+    "input_esfera_municipal": [
+      "xpath=//input[@name='tp_esfera_poder' and @value='M']",
+      "xpath=//input[@type='radio' and @value='M']"
+    ],
+    "input_esfera_federal": [
+      "xpath=//input[@name='tp_esfera_poder' and @value='F']",
+      "xpath=//input[@type='radio' and @value='F']"
+    ],
+    "input_pais": [
+      "xpath=//input[@name='no_pais']",
+      "xpath=(//input[contains(@name,'pais') or contains(@id,'pais')])[1]"
+    ],
+    "botao_cidade": [
+      "xpath=//input[contains(@onclick,'pesquisaMunicipio')]",
+      "xpath=(//input[@value='Pesquisa'])[last()]"
+    ],
+    "input_cidade_texto": [
+      "xpath=//input[@name='no_municipio']"
+    ],
+    "input_ddi": [
+      "xpath=//input[@name='nu_ddi']",
+      "xpath=(//input[contains(@name,'ddi') or contains(@id,'ddi')])[1]"
+    ],
+    "input_ddd": [
+      "xpath=//input[@name='nu_ddd']",
+      "xpath=(//input[contains(@name,'ddd') or contains(@id,'ddd')])[1]"
+    ],
+    "input_telefone": [
+      "xpath=//input[@name='nu_fone']",
+      "xpath=(//input[contains(@name,'telefone') or contains(@name,'fone') or contains(@id,'telefone')])[1]"
+    ],
+    "textarea_justificativa": [
+      "xpath=//textarea[@name='ds_observacao']",
+      "xpath=//textarea[contains(@name,'observ') or contains(@id,'observ') or contains(@name,'justific')]"
+    ],
+    "sistema_radio_341": [
+      "xpath=//input[@type='radio' and @name='co_sistema_aprovacao' and @value='341']",
+      "css=input[name='co_sistema_aprovacao'][value='341']"
+    ],
+    "sistema_linha_horus": [
+      "xpath=//tr[.//text()[contains(., 'HÓRUS - BÁSICO / ESTRATÉGICO')] or .//text()[contains(., 'HORUS - BÁSICO / ESTRATÉGICO')] or .//text()[contains(., 'HORUS - BASICO / ESTRATEGICO')]]"
+    ],
+    "botao_gravar": [
+      "xpath=//input[@name='insert']",
+      "css=input[value='Gravar']",
+      "xpath=//button[contains(.,'Gravar')]"
+    ],
+    "mensagem_sucesso": [
+      "xpath=//*[contains(.,'gravado') or contains(.,'sucesso') or contains(.,'Solicitação registrada')]"
+    ],
+    "botao_confirmar": [
+      "xpath=//input[@value='Confirmar']",
+      "css=input[value='Confirmar']"
+    ]
+  },
+  "popup_entidade": {
+    "linha_resultado": [
+      "xpath=//a[contains(., 'SECRETARIA MUNICIPAL DE SAUDE OEIRAS') and not(contains(., 'PARA'))]",
+      "xpath=//td[contains(., 'SECRETARIA MUNICIPAL DE SAUDE OEIRAS') and not(contains(., 'PARA'))]//a",
+      "xpath=//tr[contains(., 'SECRETARIA MUNICIPAL DE SAUDE OEIRAS') and not(contains(., 'PARA'))]//a"
+    ]
+  },
+  "popup_cidade": {
+    "linha_resultado": [
+      "xpath=//a[contains(., 'OEIRAS - PI')]",
+      "xpath=//td[contains(., 'OEIRAS - PI')]//a",
+      "xpath=//tr[contains(., 'OEIRAS - PI') and not(contains(., 'PARA'))]//a"
+    ]
+  },
+  "final": {
+    "url_contains": [
+      "solicitacaoPerfil.do"
+    ],
+    "grid_sistema": [
+      "xpath=//table//*[contains(., 'HÓRUS - BÁSICO / ESTRATÉGICO') or contains(., 'HORUS - BÁSICO / ESTRATÉGICO')]"
+    ]
+  },
+  "perfil": {
+    "botao_informar_perfil": [
+      "xpath=//a[contains(@href,'acao=gravar') and contains(@href,'co_sistema=341')]",
+      "xpath=//a[.//img[contains(@alt,'Perfil') or contains(@src,'perfil')]]",
+      "xpath=//img[@alt='Perfil']/parent::a"
+    ],
+    "select_perfil": [
+      "xpath=//select[contains(@name,'perfil') or contains(@name,'co_perfil')]",
+      "css=select[name*='perfil']"
+    ],
+    "select_esfera_atuacao": [
+      "xpath=//select[contains(@name,'esfera') or contains(@name,'co_esfera')]",
+      "css=select[name*='esfera']"
+    ],
+    "input_unidade_dispensacao": [
+      "xpath=//input[@name='ds_unidade_dispensacao']",
+      "xpath=//input[contains(@name,'unidade_dispensacao')]"
+    ],
+    "botao_pesquisar_unidade": [
+      "xpath=//input[contains(@onclick,'pesquisaUndDispensacaoHorus')]",
+      "xpath=//div[@id='divUnidadeSaudeHorus']//input[@value='Pesquisar']"
+    ],
+    "botao_incluir": [
+      "xpath=//input[@value='Incluir']",
+      "css=input[value='Incluir']"
+    ],
+    "botao_finalizar": [
+      "xpath=//input[@value='Finalizar']",
+      "css=input[value='Finalizar']"
+    ],
+    "perfil_existente_excluir": [
+      "xpath=//a[contains(@href,'excluir') or .//img[contains(@src,'excluir') or contains(@alt,'xcluir')]]",
+      "xpath=//img[contains(@src,'delete') or contains(@src,'excluir')]"
+    ]
+  },
+  "popup_ubs": {
+    "linha_resultado": [
+      "xpath=//a[contains(., '{UBS_NAME}')]",
+      "xpath=//td[contains(., '{UBS_NAME}')]//a"
+    ]
+  }
+}
