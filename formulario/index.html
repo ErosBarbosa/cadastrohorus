@@ -1,100 +1,155 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro HÃ³rus - Secretaria Municipal de SaÃºde de Oeiras</title>
+    <title>Cadastro Hórus - Secretaria Municipal de Saúde de Oeiras</title>
     <meta name="description"
-        content="FormulÃ¡rio de cadastro e atualizaÃ§Ã£o de perfil no sistema HÃ³rus - SCAWEB para profissionais de saÃºde de Oeiras-PI">
+        content="Formulário de cadastro e atualização de perfil no sistema Hórus - SCAWEB para profissionais de saúde de Oeiras-PI">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=v6.6">
 </head>
 
 <body>
+    <!-- Ambient background -->
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
     <!-- Animated background particles -->
     <div class="bg-particles" id="particles"></div>
 
     <div class="page-wrapper">
-        <!-- Header -->
+        <!-- Header (Sleek Minimalist) -->
         <header class="header">
             <div class="header-content">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>
+                    </svg>
+                </div>
                 <div class="logo-area">
-                    <div class="logo-icon">
-                        <span class="logo-pill" aria-hidden="true">ðŸ’Š</span>
-                    </div>
                     <div class="logo-text">
-                        <h1>Sistema Horus</h1>
-                        <p>Medicamentos • Secretaria Municipal de Saude - Oeiras-PI</p>
+                        <h1>Cadastro Hórus</h1>
+                        <p>Secretaria Municipal de Saúde</p>
                     </div>
                 </div>
-                <div class="header-badge">
-                    <span class="badge-dot"></span>
-                    Formulario Online
-                </div>
+                <button class="theme-btn" id="themeToggle" aria-label="Alternar tema">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="theme-icon theme-icon-moon">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="theme-icon theme-icon-sun">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
             </div>
         </header>
 
         <!-- Main Form -->
         <main class="main-content">
-            <div class="form-card">
-                <!-- Form Header -->
-                <div class="form-header">
-                    <h2>Cadastro de Profissional</h2>
-                    <p>Preencha os dados abaixo para solicitar seu cadastro ou atualizaÃ§Ã£o no sistema HÃ³rus (SCAWEB)</p>
-                </div>
+            <!-- Form Header Island -->
+            <div class="header-island">
+                <h2>Cadastro de Profissional</h2>
+                <p>Preencha os dados abaixo para solicitar seu cadastro ou atualização no sistema Hórus</p>
+            </div>
 
-                <!-- Progress Steps -->
+            <!-- Progress Island -->
+            <div class="progress-island">
                 <div class="progress-bar">
                     <div class="progress-step active" data-step="1">
                         <div class="step-circle">1</div>
-                        <span>Dados Pessoais</span>
+                        <span>Ação</span>
                     </div>
                     <div class="progress-line"></div>
                     <div class="progress-step" data-step="2">
                         <div class="step-circle">2</div>
-                        <span>Profissional</span>
+                        <span>Pessoais</span>
                     </div>
                     <div class="progress-line"></div>
                     <div class="progress-step" data-step="3">
                         <div class="step-circle">3</div>
-                        <span>ConfirmaÃ§Ã£o</span>
+                        <span>Profissional</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-circle">4</div>
+                        <span>Revisão</span>
                     </div>
                 </div>
+            </div>
 
+            <!-- Main Form Card Island -->
+            <div class="form-card">
                 <form id="formCadastro" novalidate>
-                    <!-- Step 1: Dados Pessoais -->
+                    <!-- Step 1: Tipo de Solicitação -->
                     <div class="form-step active" id="step1">
                         <div class="step-title">
-                            <div class="step-icon">ðŸ‘¤</div>
-                            <h3>Dados Pessoais</h3>
+                            <div class="step-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                            </div>
+                            <h3>Tipo de Solicitação</h3>
                         </div>
 
                         <div class="form-group">
-                            <label>Tipo de SolicitaÃ§Ã£o</label>
+                            <label>Selecione a Ação Desejada</label>
                             <div class="radio-cards">
                                 <label class="radio-card">
                                     <input type="radio" name="tipo_acao" value="CADASTRO" required>
                                     <div class="card-content">
-                                        <span class="card-icon">ðŸ†•</span>
-                                        <span class="card-title">Novo Cadastro</span>
-                                        <span class="card-desc">Para quem nunca usou o HÃ³rus antes</span>
+                                        <span class="card-icon">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="16" y1="11" x2="22" y2="11"/></svg>
+                                        </span>
+                                        <span class="card-title">Novo cadastro</span>
+                                        <span class="card-desc">Para quem nunca usou o Hórus antes</span>
                                     </div>
                                 </label>
                                 <label class="radio-card">
                                     <input type="radio" name="tipo_acao" value="ATUALIZAR_PERFIL">
                                     <div class="card-content">
-                                        <span class="card-icon">ðŸ”„</span>
-                                        <span class="card-title">Atualizar Perfil / Trocar UBS</span>
-                                        <span class="card-desc">Para quem jÃ¡ tem acesso e mudou de local</span>
+                                        <span class="card-icon">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"/></svg>
+                                        </span>
+                                        <span class="card-title">Atualizar perfil / Trocar UBS</span>
+                                        <span class="card-desc">Para quem já tem acesso e mudou de local</span>
                                     </div>
                                 </label>
                             </div>
                             <span class="field-error" id="erro_tipo"></span>
+                        </div>
+
+                        <div class="form-actions">
+                            <div></div>
+                            <button type="button" class="btn btn-primary" onclick="nextStep(2)">
+                                Próximo
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Dados Pessoais -->
+                    <div class="form-step" id="step2" style="display:none;">
+                        <div class="step-title">
+                            <div class="step-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                            <h3>Dados Pessoais</h3>
                         </div>
 
                         <div class="form-group">
@@ -130,35 +185,37 @@
                         </div>
 
                         <div class="form-actions">
-                            <div></div>
-                            <button type="button" class="btn btn-primary" onclick="nextStep(2)">
-                                PrÃ³ximo
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
+                            <button type="button" class="btn btn-secondary" onclick="prevStep(1)">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+                                Voltar
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep(3)">
+                                Próximo
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Step 2: Dados Profissionais -->
-                    <div class="form-step" id="step2">
+                    <!-- Step 3: Dados Profissionais -->
+                    <div class="form-step" id="step3" style="display:none;">
                         <div class="step-title">
-                            <div class="step-icon">ðŸ¥</div>
+                            <div class="step-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            </div>
                             <h3>Dados Profissionais</h3>
                         </div>
 
                         <div class="form-group">
-                            <label for="cargo_funcao">Cargo / FunÃ§Ã£o</label>
+                            <label for="cargo_funcao">Cargo / Função</label>
                             <div class="select-wrapper">
                                 <select id="cargo_funcao" name="cargo_funcao" required>
                                     <option value="">Selecione seu cargo...</option>
                                     <option value="ENFERMEIRO(A)">Enfermeiro(a)</option>
-                                    <option value="TÃ‰CNICO(A) DE ENFERMAGEM">TÃ©cnico(a) de Enfermagem</option>
-                                    <option value="MÃ‰DICO(A)">MÃ©dico(a)</option>
-                                    <option value="FARMACÃŠUTICO(A)">FarmacÃªutico(a)</option>
+                                    <option value="TÉCNICO(A) DE ENFERMAGEM">Técnico(a) de Enfermagem</option>
+                                    <option value="MÉDICO(A)">Médico(a)</option>
+                                    <option value="FARMACÊUTICO(A)">Farmacêutico(a)</option>
                                     <option value="DENTISTA">Dentista</option>
-                                    <option value="AGENTE COMUNITÃRIO DE SAÃšDE">Agente ComunitÃ¡rio de SaÃºde</option>
+                                    <option value="AGENTE COMUNITÁRIO DE SAÚDE">Agente Comunitário de Saúde</option>
                                     <option value="RECEPCIONISTA">Recepcionista</option>
                                     <option value="COORDENADOR(A)">Coordenador(a)</option>
                                     <option value="DIGITADOR(A)">Digitador(a)</option>
@@ -178,7 +235,16 @@
                                 <label class="radio-card">
                                     <input type="radio" name="zona_unidade" value="URBANA">
                                     <div class="card-content" style="padding: 16px 12px;">
-                                        <span class="card-icon" style="font-size: 2rem;">ðŸ™ï¸</span>
+                                        <span class="card-icon" style="font-size: 2rem;">
+                                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="3" y="7" width="6" height="14"></rect>
+                                                <rect x="11" y="3" width="10" height="18"></rect>
+                                                <line x1="6" y1="11" x2="6" y2="11"></line>
+                                                <line x1="16" y1="7" x2="16" y2="7"></line>
+                                                <line x1="16" y1="11" x2="16" y2="11"></line>
+                                                <line x1="16" y1="15" x2="16" y2="15"></line>
+                                            </svg>
+                                        </span>
                                         <span class="card-title" style="font-size: 1.05rem;">Zona Urbana</span>
                                         <span class="card-desc" style="font-size: 0.8rem;">Na cidade</span>
                                     </div>
@@ -186,7 +252,13 @@
                                 <label class="radio-card">
                                     <input type="radio" name="zona_unidade" value="RURAL">
                                     <div class="card-content" style="padding: 16px 12px;">
-                                        <span class="card-icon" style="font-size: 2rem;">ðŸŒ³</span>
+                                        <span class="card-icon" style="font-size: 2rem;">
+                                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 22v-8"></path>
+                                                <path d="M5 12a7 7 0 0 1 14 0"></path>
+                                                <path d="M8 14h8"></path>
+                                            </svg>
+                                        </span>
                                         <span class="card-title" style="font-size: 1.05rem;">Zona Rural</span>
                                         <span class="card-desc" style="font-size: 0.8rem;">No interior</span>
                                     </div>
@@ -202,32 +274,22 @@
                                     <option value="">Selecione a UBS...</option>
                                     <option value="CAPS AD - OEIRAS-PI">CAPS AD - OEIRAS-PI</option>
                                     <option value="CAPS I - OEIRAS-PI">CAPS I - OEIRAS-PI</option>
-                                    <option value="CENTRO DE CONTROLE DE VETORES E ZOONOSES DE OEIRAS - OEIRAS-PI">
-                                        CENTRO DE CONTROLE DE VETORES E ZOONOSES</option>
-                                    <option value="CENTRO DE ESPECIALIDADES ODONTOLOGICAS CEO DE OEIRAS - OEIRAS-PI">CEO
-                                        DE OEIRAS</option>
-                                    <option value="CS DR PAULO DE TARSO - OEIRAS-PI">CS DR PAULO DE TARSO - OEIRAS-PI
-                                    </option>
+                                    <option value="CENTRO DE CONTROLE DE VETORES E ZOONOSES DE OEIRAS - OEIRAS-PI">CENTRO DE CONTROLE DE VETORES E ZOONOSES</option>
+                                    <option value="CENTRO DE ESPECIALIDADES ODONTOLOGICAS CEO DE OEIRAS - OEIRAS-PI">CEO DE OEIRAS</option>
+                                    <option value="CS DR PAULO DE TARSO - OEIRAS-PI">CS DR PAULO DE TARSO - OEIRAS-PI</option>
                                     <option value="SAMU 192 OEIRAS USB 01 - OEIRAS-PI">SAMU 192 OEIRAS USB 01</option>
                                     <option value="SAMU 192 OEIRAS USB 02 - OEIRAS-PI">SAMU 192 OEIRAS USB 02</option>
                                     <option value="SAMU 192 OEIRAS USB 03 - OEIRAS-PI">SAMU 192 OEIRAS USB 03</option>
-                                    <option value="SAMU 192 SUPORTE AVANCADO USA 01 - OEIRAS-PI">SAMU 192 SUPORTE
-                                        AVANÃ‡ADO USA 01</option>
-                                    <option value="SESAM ALMOXARIFADO - OEIRAS-PI">SESAM ALMOXARIFADO - OEIRAS-PI
-                                    </option>
-                                    <option value="SESAM FARMÃCIA - OEIRAS-PI">SESAM FARMÃCIA - OEIRAS-PI</option>
+                                    <option value="SAMU 192 SUPORTE AVANCADO USA 01 - OEIRAS-PI">SAMU 192 SUPORTE AVANÇADO USA 01</option>
+                                    <option value="SESAM ALMOXARIFADO - OEIRAS-PI">SESAM ALMOXARIFADO - OEIRAS-PI</option>
+                                    <option value="SESAM FARMÁCIA - OEIRAS-PI">SESAM FARMÁCIA - OEIRAS-PI</option>
                                     <option value="UBS JURANI - OEIRAS-PI">UBS JURANI - OEIRAS-PI</option>
-                                    <option value="USF CANELA DE OEIRAS - OEIRAS-PI">USF CANELA DE OEIRAS - OEIRAS-PI
-                                    </option>
-                                    <option value="USF DE OEIRAS NOVA - OEIRAS-PI">USF DE OEIRAS NOVA - OEIRAS-PI
-                                    </option>
-                                    <option value="USF DR HAILTON ALVES - OEIRAS-PI">USF DR HAILTON ALVES - OEIRAS-PI
-                                    </option>
-                                    <option value="USF DR PEDRO BARBOSA - OEIRAS-PI">USF DR PEDRO BARBOSA - OEIRAS-PI
-                                    </option>
+                                    <option value="USF CANELA DE OEIRAS - OEIRAS-PI">USF CANELA DE OEIRAS - OEIRAS-PI</option>
+                                    <option value="USF DE OEIRAS NOVA - OEIRAS-PI">USF DE OEIRAS NOVA - OEIRAS-PI</option>
+                                    <option value="USF DR HAILTON ALVES - OEIRAS-PI">USF DR HAILTON ALVES - OEIRAS-PI</option>
+                                    <option value="USF DR PEDRO BARBOSA - OEIRAS-PI">USF DR PEDRO BARBOSA - OEIRAS-PI</option>
                                     <option value="USF JUREMINHA - OEIRAS-PI">USF JUREMINHA - OEIRAS-PI</option>
-                                    <option value="USF RODAGEM DE PICOS - OEIRAS-PI">USF RODAGEM DE PICOS - OEIRAS-PI
-                                    </option>
+                                    <option value="USF RODAGEM DE PICOS - OEIRAS-PI">USF RODAGEM DE PICOS - OEIRAS-PI</option>
                                     <option value="USF VARZEA - OEIRAS-PI">USF VARZEA - OEIRAS-PI</option>
                                     <option value="OUTRO">Outra unidade...</option>
                                 </select>
@@ -243,64 +305,52 @@
                                     <option value="UBS ALTO SERENO - OEIRAS-PI">UBS ALTO SERENO - OEIRAS-PI</option>
                                     <option value="UBS BELO MONTE - OEIRAS-PI">UBS BELO MONTE - OEIRAS-PI</option>
                                     <option value="UBS BOA VISTA - OEIRAS-PI">UBS BOA VISTA - OEIRAS-PI</option>
-                                    <option value="UBS BURITI DO CANTO - OEIRAS-PI">UBS BURITI DO CANTO - OEIRAS-PI
-                                    </option>
-                                    <option value="UBS CANTO FAZENDA FRADE - OEIRAS-PI">UBS CANTO FAZENDA FRADE -
-                                        OEIRAS-PI</option>
+                                    <option value="UBS BURITI DO CANTO - OEIRAS-PI">UBS BURITI DO CANTO - OEIRAS-PI</option>
+                                    <option value="UBS CANTO FAZENDA FRADE - OEIRAS-PI">UBS CANTO FAZENDA FRADE - OEIRAS-PI</option>
                                     <option value="US CARAIBAS - OEIRAS-PI">US CARAIBAS - OEIRAS-PI</option>
                                     <option value="US CURRAL VELHO - OEIRAS-PI">US CURRAL VELHO - OEIRAS-PI</option>
                                     <option value="US EXU - OEIRAS-PI">US EXU - OEIRAS-PI</option>
                                     <option value="US MALHADA GRANDE - OEIRAS-PI">US MALHADA GRANDE - OEIRAS-PI</option>
                                     <option value="US MALHADA REAL - OEIRAS-PI">US MALHADA REAL - OEIRAS-PI</option>
                                     <option value="US MELANCIAS - OEIRAS-PI">US MELANCIAS - OEIRAS-PI</option>
-                                    <option value="US TAMBORIL SALINAS - OEIRAS-PI">US TAMBORIL SALINAS - OEIRAS-PI
-                                    </option>
+                                    <option value="US TAMBORIL SALINAS - OEIRAS-PI">US TAMBORIL SALINAS - OEIRAS-PI</option>
                                     <option value="USF ALAGOINHA- OEIRAS-PI">USF ALAGOINHA - OEIRAS-PI</option>
                                     <option value="USF BOA NOVA - OEIRAS-PI">USF BOA NOVA - OEIRAS-PI</option>
                                     <option value="USF BRIONA - OEIRAS-PI">USF BRIONA - OEIRAS-PI</option>
                                     <option value="USF BURITI DO REI - OEIRAS-PI">USF BURITI DO REI - OEIRAS-PI</option>
                                     <option value="USF CONTENTAMENTO - OEIRAS-PI">USF CONTENTAMENTO - OEIRAS-PI</option>
                                     <option value="USF MORRO REDONDO - OEIRAS-PI">USF MORRO REDONDO - OEIRAS-PI</option>
-                                    <option value="USF VARZEA TRANQUEIRA - OEIRAS-PI">USF VARZEA TRANQUEIRA - OEIRAS-PI
-                                    </option>
+                                    <option value="USF VARZEA TRANQUEIRA - OEIRAS-PI">USF VARZEA TRANQUEIRA - OEIRAS-PI</option>
                                     <option value="OUTRO">Outra unidade...</option>
                                 </select>
                             </div>
                             <span class="field-error" id="erro_unidade_rural"></span>
                         </div>
 
-                        <div style="margin-bottom: 24px; text-align: left;" id="btn_add_unidade_container">
-                            <button type="button" id="btn_add_unidade" class="btn btn-secondary"
-                                style="font-size: 0.9rem; padding: 10px 16px; display: none;">
-                                + Adicionar 2Âª Unidade (Acesso Duplo)
+                        <div class="add-unit-container" id="btn_add_unidade_container">
+                            <button type="button" id="btn_add_unidade" class="btn btn-secondary btn-add-unit"
+                                style="display: none;">
+                                + Adicionar 2ª Unidade (Acesso Duplo)
                             </button>
                         </div>
 
-                        <div class="form-group" id="group_unidade_2"
-                            style="display: none; padding-top: 16px; border-top: 1px dashed var(--border);">
-                            <label for="unidade_2">Selecione a 2Âª Unidade (Opcional)</label>
+                        <div class="form-group secondary-unit-group" id="group_unidade_2" style="display: none;">
+                            <label for="unidade_2">Selecione a 2ª Unidade (Opcional)</label>
                             <div class="select-wrapper">
                                 <select id="unidade_2" name="unidade_2">
-                                    <option value="">Selecione a 2Âª UBS (Qualquer zona)...</option>
+                                    <option value="">Selecione a 2ª UBS (Qualquer zona)...</option>
                                     <optgroup label="Zona Urbana (Cidade)">
                                         <option value="CAPS AD - OEIRAS-PI">CAPS AD - OEIRAS-PI</option>
                                         <option value="CAPS I - OEIRAS-PI">CAPS I - OEIRAS-PI</option>
-                                        <option value="CENTRO DE CONTROLE DE VETORES E ZOONOSES DE OEIRAS - OEIRAS-PI">
-                                            CENTRO DE CONTROLE DE VETORES</option>
-                                        <option
-                                            value="CENTRO DE ESPECIALIDADES ODONTOLOGICAS CEO DE OEIRAS - OEIRAS-PI">CEO
-                                            DE OEIRAS</option>
+                                        <option value="CENTRO DE CONTROLE DE VETORES E ZOONOSES DE OEIRAS - OEIRAS-PI">CENTRO DE CONTROLE DE VETORES</option>
+                                        <option value="CENTRO DE ESPECIALIDADES ODONTOLOGICAS CEO DE OEIRAS - OEIRAS-PI">CEO DE OEIRAS</option>
                                         <option value="CS DR PAULO DE TARSO - OEIRAS-PI">CS DR PAULO DE TARSO</option>
-                                        <option value="SAMU 192 OEIRAS USB 01 - OEIRAS-PI">SAMU 192 OEIRAS USB 01
-                                        </option>
-                                        <option value="SAMU 192 OEIRAS USB 02 - OEIRAS-PI">SAMU 192 OEIRAS USB 02
-                                        </option>
-                                        <option value="SAMU 192 OEIRAS USB 03 - OEIRAS-PI">SAMU 192 OEIRAS USB 03
-                                        </option>
-                                        <option value="SAMU 192 SUPORTE AVANCADO USA 01 - OEIRAS-PI">SAMU 192 USA 01
-                                        </option>
+                                        <option value="SAMU 192 OEIRAS USB 01 - OEIRAS-PI">SAMU 192 OEIRAS USB 01</option>
+                                        <option value="SAMU 192 OEIRAS USB 02 - OEIRAS-PI">SAMU 192 OEIRAS USB 02</option>
+                                        <option value="SAMU 192 OEIRAS USB 03 - OEIRAS-PI">SAMU 192 OEIRAS USB 03</option>
+                                        <option value="SAMU 192 SUPORTE AVANCADO USA 01 - OEIRAS-PI">SAMU 192 USA 01</option>
                                         <option value="SESAM ALMOXARIFADO - OEIRAS-PI">SESAM ALMOXARIFADO</option>
-                                        <option value="SESAM FARMÃCIA - OEIRAS-PI">SESAM FARMÃCIA</option>
+                                        <option value="SESAM FARMÁCIA - OEIRAS-PI">SESAM FARMÁCIA</option>
                                         <option value="UBS JURANI - OEIRAS-PI">UBS JURANI - OEIRAS-PI</option>
                                         <option value="USF CANELA DE OEIRAS - OEIRAS-PI">USF CANELA DE OEIRAS</option>
                                         <option value="USF DE OEIRAS NOVA - OEIRAS-PI">USF DE OEIRAS NOVA</option>
@@ -315,8 +365,7 @@
                                         <option value="UBS BELO MONTE - OEIRAS-PI">UBS BELO MONTE</option>
                                         <option value="UBS BOA VISTA - OEIRAS-PI">UBS BOA VISTA</option>
                                         <option value="UBS BURITI DO CANTO - OEIRAS-PI">UBS BURITI DO CANTO</option>
-                                        <option value="UBS CANTO FAZENDA FRADE - OEIRAS-PI">UBS CANTO FAZENDA FRADE
-                                        </option>
+                                        <option value="UBS CANTO FAZENDA FRADE - OEIRAS-PI">UBS CANTO FAZENDA FRADE</option>
                                         <option value="US CARAIBAS - OEIRAS-PI">US CARAIBAS</option>
                                         <option value="US CURRAL VELHO - OEIRAS-PI">US CURRAL VELHO</option>
                                         <option value="US EXU - OEIRAS-PI">US EXU</option>
@@ -337,9 +386,8 @@
                             </div>
                             <span class="field-error" id="erro_unidade_2"></span>
 
-                            <button type="button" id="btn_rem_unidade" class="btn btn-secondary"
-                                style="margin-top: 12px; font-size: 0.9rem; padding: 10px 16px; color: var(--danger); border-color: rgba(239, 68, 68, 0.3);">
-                                - Remover 2Âª Unidade
+                            <button type="button" id="btn_rem_unidade" class="btn btn-secondary btn-remove-unit">
+                                - Remover 2ª Unidade
                             </button>
                         </div>
                         <div class="form-group" id="unidade_outra_group" style="display:none;">
@@ -350,44 +398,41 @@
 
                         <div class="form-group" id="justificativa_group" style="display:none;">
                             <label for="justificativa">Justificativa <span
-                                    style="font-weight:400; color: var(--text-muted); font-size:0.85rem;">(opcional â€“
+                                    style="font-weight:400; color: var(--text-muted); font-size:0.85rem;">(opcional -
                                     apenas para casos especiais)</span></label>
                             <textarea id="justificativa" name="justificativa" rows="3"
-                                placeholder="Ex: MudanÃ§a de cargo, lotaÃ§Ã£o especÃ­fica, etc."
-                                style="width:100%; padding: 12px 16px; border-radius: 10px; border: 2px solid var(--border); background: var(--surface); color: var(--text-primary); font-family: inherit; font-size: 1rem; resize: vertical; transition: border-color 0.2s;"></textarea>
+                                placeholder="Ex: Mudança de cargo, lotação específica, etc."
+                                ></textarea>
                         </div>
 
-                        <div id="perfil_preview"
-                            style="display:none; margin-top: 8px; padding: 14px 18px; border-radius: 12px; background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); border: 1px solid rgba(255,255,255,0.15);">
-                            <p
-                                style="margin:0; font-size: 0.82rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em;">
-                                Perfil que serÃ¡ atribuÃ­do</p>
-                            <p id="perfil_preview_text"
-                                style="margin: 4px 0 0; font-size: 1.05rem; font-weight: 600; color: #fff;"></p>
+                        <div id="perfil_preview" class="profile-preview" style="display:none;">
+                            <p class="profile-preview-label">
+                                Perfil que será atribuído</p>
+                            <p id="perfil_preview_text" class="profile-preview-text"></p>
                         </div>
 
                         <div class="form-actions">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep(1)">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep(2)">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M19 12H5M12 19l-7-7 7-7" />
                                 </svg>
                                 Voltar
                             </button>
-                            <button type="button" class="btn btn-primary" onclick="nextStep(3)">
+                            <button type="button" class="btn btn-primary" onclick="nextStep(4)">
                                 Revisar
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Step 3: ConfirmaÃ§Ã£o -->
-                    <div class="form-step" id="step3">
+                    <!-- Step 4: Confirmação -->
+                    <div class="form-step" id="step4" style="display:none;">
                         <div class="step-title">
-                            <div class="step-icon">âœ…</div>
+                            <div class="step-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
                             <h3>Confirme seus dados</h3>
                         </div>
 
@@ -417,7 +462,7 @@
                                 <h4>Dados Profissionais</h4>
                                 <div class="review-grid">
                                     <div class="review-item">
-                                        <span class="review-label">SolicitaÃ§Ã£o</span>
+                                        <span class="review-label">Solicitação</span>
                                         <span class="review-value" id="rev_tipo">-</span>
                                     </div>
                                     <div class="review-item">
@@ -432,22 +477,27 @@
                             </div>
                         </div>
 
-                        <div
-                            style="background: rgba(245, 158, 11, 0.1); border: 1px solid var(--warning); border-radius: var(--radius-sm); padding: 16px 20px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 12px;">
-                            <span style="font-size: 1.5rem;">âš ï¸</span>
-                            <div>
-                                <strong
-                                    style="color: var(--warning); display: block; margin-bottom: 4px; font-size: 0.95rem;">Passo
-                                    ObrigatÃ³rio</strong>
-                                <p style="font-size: 0.9rem; color: var(--text); line-height: 1.4;">
-                                    Ao clicar em Enviar, seu WhatsApp abrirÃ¡ <strong>automaticamente</strong> para
-                                    enviar esta cÃ³pia ao suporte. <strong>Por favor, envie a mensagem!</strong>
+                        <div class="warning-panel">
+                            <span class="warning-icon">⚠️</span>
+                            <div class="warning-content">
+                                <strong class="warning-title">Passo Obrigatório</strong>
+                                <p class="warning-text">
+                                    Após clicar em Enviar, seu WhatsApp abrirá <strong>automaticamente</strong> para
+                                    enviar esta cópia ao suporte. <strong>Por favor, envie a mensagem!</strong>
                                 </p>
                             </div>
                         </div>
 
+                        <div class="consent-box">
+                            <label class="consent-check" for="confirmacao_envio">
+                                <input type="checkbox" id="confirmacao_envio" name="confirmacao_envio">
+                                <span>Confirmo que os dados estão corretos e autorizo o uso para cadastro no sistema Hórus.</span>
+                            </label>
+                            <span class="field-error" id="erro_confirmacao_envio"></span>
+                        </div>
+
                         <div class="form-actions">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep(2)">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep(3)">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
                                     <path d="M19 12H5M12 19l-7-7 7-7" />
@@ -467,29 +517,19 @@
                     <!-- Success State -->
                     <div class="form-step" id="stepSuccess" style="display:none;">
                         <div class="success-container">
-                            <div class="success-icon" style="margin-bottom: 0;">
-                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                                    <circle cx="40" cy="40" r="36" stroke="#f59e0b" stroke-width="3" fill="#f59e0b"
-                                        fill-opacity="0.1" />
-                                    <path d="M40 20v20l10 10" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
+                            <div class="success-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </div>
-                            <h3 style="color: var(--warning);">Quase lÃ¡! Fila Iniciada â³</h3>
-                            <p style="font-size: 1.05rem; font-weight: 500; color: var(--text);">Os seus dados foram
-                                salvos no nosso banco de dados da SaÃºde.</p>
-                            <p style="margin-top: 8px; font-size: 0.95rem;"><strong>PASSO OBRIGATÃ“RIO:</strong> Para
-                                validarmos sua urgÃªncia e a fila andar, vocÃª precisa avisar o Suporte pressionando o
-                                botÃ£o verde gigante abaixo.</p>
+                            <h3>Quase lá! Fila Iniciada ⏳</h3>
+                            <p class="success-main-text">Os seus dados foram salvos no nosso banco de dados da Saúde.</p>
+                            <p class="success-sub-text"><strong>PASSO OBRIGATÓRIO:</strong> Para validarmos sua urgência e a fila andar, você precisa avisar o Suporte pressionando o botão verde abaixo.</p>
 
-                            <div class="success-info" style="margin-top: 20px;">
+                            <div class="success-info">
                                 <div class="info-item">
-                                    <span class="info-icon">ðŸ“‹</span>
-                                    <span>Seu Protocolo: <strong id="protocolo"
-                                            style="color: var(--primary); font-size: 1.1rem;">-</strong>
+                                    <span class="info-icon">📋</span>
+                                    <span>Seu Protocolo: <strong id="protocolo" class="protocol-code">-</strong>
                                         <button type="button" class="btn-copy-protocol" onclick="copiarProtocolo()"
-                                            title="Copiar Protocolo"
-                                            style="background: none; border: none; cursor: pointer; margin-left: 8px; font-size: 0.9rem; color: var(--text-lighter); padding: 4px; border-radius: 4px; transition: all 0.2s;">
+                                            title="Copiar Protocolo">
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round">
@@ -501,33 +541,16 @@
                                 </div>
                             </div>
 
-                            <a href="#" id="btn_whatsapp" class="btn"
-                                style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; display:flex; margin-bottom: 24px; width: 100%; justify-content: center; font-size: 1.15rem; padding: 20px; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; animation: pulse-green 2s infinite;"
-                                target="_blank">
-                                ï¿½ ENVIAR PARA O SUPORTE
+                            <a href="#" id="btn_whatsapp" class="btn whatsapp-cta" target="_blank">
+                                Enviar para o suporte
                             </a>
 
-                            <button type="button" class="btn btn-secondary" onclick="novoFormulario()"
-                                style="width: 100%;">
-                                Voltar e fazer Novo Cadastro
+                            <button type="button" class="btn btn-secondary full-width" onclick="novoFormulario()">
+                                Voltar e fazer novo cadastro
                             </button>
                         </div>
 
-                        <style>
-                            @keyframes pulse-green {
-                                0% {
-                                    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-                                }
 
-                                70% {
-                                    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
-                                }
-
-                                100% {
-                                    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-                                }
-                            }
-                        </style>
                     </div>
 
                     <!-- Loading State -->
@@ -541,13 +564,14 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p>Desenvolvido por <strong style="color: #f97316;">Eros Fernandes</strong></p>
+            <p>Desenvolvido por <strong>Eros Fernandes</strong></p>
         </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=v6.6"></script>
 </body>
 
 </html>
+
 
